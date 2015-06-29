@@ -25,8 +25,9 @@ pdf(file = pdfFileName2)
 hist(uNum, main='uniform distribution')
 graphics.off()
 
-#as of 20150607 this worked once we changed an option in gmail by removing extra security
-#there: https://www.google.com/settings/security/lesssecureapps
+#Send the email via a SMTP server that requires authentication:
+#changed an option in gmail by removing extra security there:
+#https://www.google.com/settings/security/lesssecureapps
 send.mail(from = 'sender@gmail.com',
           to = c('recipient@gmail.com'),
           subject = 'Subject of my email',
@@ -40,10 +41,10 @@ send.mail(from = 'sender@gmail.com',
           file.names = c('file1.pdf', 'file2.pdf') # optional parameter
 )
 
-#as of 20150607 this is not working
+#Send the email via a SMTP server that does not require authentication
 send.mail(debug = TRUE,
           from = 'sender@gmail.com',
-          to = c('sender@gmail.com'),
+          to = c('recipient@gmail.com'),
           subject = "Subject of the email",
           body = "Body of the email",
           smtp = list(host.name = "aspmx.l.google.com", port = 25, ssl=FALSE),
